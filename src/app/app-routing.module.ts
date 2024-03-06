@@ -6,7 +6,8 @@ import { ShowtimesComponent } from './showtimes/showtimes.component';
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 import { BookingComponent } from './booking/booking.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard,} from './auth.guard';
+import { AuthGuard2 } from './auth2.guard';
 import { MovieFormComponent } from './admin/movie-form/movie-form.component';
 import { MovieEditComponent } from './admin/movie-edit/movie-edit.component';
 
@@ -17,8 +18,8 @@ const routes: Routes = [
   {path:'showtime/:id/:idx', component:SeatSelectionComponent, canActivate:[AuthGuard]},
   {path:'booking/:id/:idx', component: BookingComponent, canActivate:[AuthGuard]},
   {path:'auth', component:AuthenticationComponent},
-  {path:'form', component:MovieFormComponent},
-  {path:'movie-edit/:id', component:MovieEditComponent}
+  {path:'form', component:MovieFormComponent, canActivate:[AuthGuard, AuthGuard2]},
+  {path:'movie-edit/:id', component:MovieEditComponent, canActivate:[AuthGuard,AuthGuard2]}
 ];
 
 @NgModule({

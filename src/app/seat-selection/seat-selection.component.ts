@@ -9,6 +9,7 @@ import { TicketService } from '../ticket.service';
   styleUrl: './seat-selection.component.css'
 })
 export class SeatSelectionComponent implements OnInit{
+  error:string = null
   seat;
   constructor(
     private movieService : MoviesService,
@@ -59,10 +60,15 @@ export class SeatSelectionComponent implements OnInit{
   }
 
   book(){
+    if(this.selectedSeats.length===0) {
+        alert("No Seat Selected")
+        return 
+    }
     this.ticket.bookTicket(this.selectedSeats, 434)
     this.router.navigate(['booking',this.movieId,this.showId ],)
     console.log(this.selectedSeats)
 
   }
 
+ 
 }

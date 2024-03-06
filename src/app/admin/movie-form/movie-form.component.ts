@@ -39,8 +39,8 @@ export class MovieFormComponent {
       description: form.value.description,
       posterUrl: form.value.poster,
       trailerUrl:form.value.trailer,
-      showtimes:[],
-      seats:[]
+      showtimes:['8AM', '12PM', '3PM'],
+      seats:[[],[],[]]
     }
     if(!this.validation.validate(this.movie.title)){
       this.error="Invalid title Format"
