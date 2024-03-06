@@ -1,0 +1,21 @@
+
+
+<div class="container" *ngIf="movie">
+    <div class="card">
+        <div class="card-body justify-content-center" >
+            <h5 class="card-title">Title : {{movie.title | uppercase}}</h5>
+            <img src="{{movie.posterUrl}}" alt="Movie Poster">
+            <p class="card-text">Description : {{movie.description}}</p>
+            
+            <a href="{{movie.trailerUrl}}" *ngIf="movie.trailerUrl">Trailer</a>
+            <p *ngIf="!movie.trailerUrl">Trailer Not Available</p>
+        </div>
+    </div>
+    <div>
+
+        <button class="btn btn-primary my-2" routerLink="/showtime/{{movie.id}}">ShowTimes</button>
+        <button class="btn btn-secondary mx-2" *ngIf="isAdmin()" routerLink="/movie-edit/{{movie.id}}">Edit</button>
+        <button class="btn btn-danger mx-2" *ngIf="isAdmin()" (click)="delete(movie.id)">Delete</button>
+    </div>
+</div>
+

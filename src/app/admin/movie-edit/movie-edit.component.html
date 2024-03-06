@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-center m-2">
+        <div class="col-md-6">
+        
+    <form (ngSubmit)="onSubmit()"  #editForm="ngForm">
+        <div class="form-group my-2">
+            <label for="name">title</label>
+            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="movie.title" required ngModel #title="ngModel">
+            <span class="alert" *ngIf="!title.valid && title.touched">Please enter valid value</span>
+        </div>
+        <div class="form-group my-2">
+            <label for="email">Description</label>
+            <input type="email" class="form-control" id="description" name="description" [(ngModel)]="movie.description" required ngModel #description="ngModel">
+            <span class="alert" *ngIf="!description.valid && description.touched">Please enter valid value</span>
+        </div>
+        <div class="form-group my-2">
+            <label for="phone">Poster</label>
+            <input type="tel" class="form-control" id="poster" name="poster" [(ngModel)]="movie.posterUrl" required  ngModel #poster = "ngModel">
+            <span class="alert" *ngIf="!poster.valid && poster.touched">Please enter valid value</span>
+        </div>
+        <div class="form-group my-2">
+            <label for="address">Trailer</label>
+            <input type="text" class="form-control" id="trailer" name="trailer" [(ngModel)]="movie.trailerUrl" required ngModel #trailer="ngModel">
+            <span class="alert" *ngIf="!trailer.valid && trailer.touched">Please enter valid value</span>
+        </div>
+        <button class="btn btn-primary my-2" type="submit"[disabled]="!editForm.valid">Update</button>
+    </form>
+        
+</div>
+</div>
+</div>
+
+<app-alert [message]="error" (showErr)="closeErr()"></app-alert>

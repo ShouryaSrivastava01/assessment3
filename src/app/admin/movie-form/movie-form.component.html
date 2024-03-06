@@ -1,0 +1,31 @@
+
+<div class="container">
+    <form (ngSubmit)="onSubmit(userForm)" #userForm = "ngForm">
+        <div class="form-group">
+            <label for="name">Title</label>
+            <input type="text" class="form-control" id="title" name="title" ngModel required  #title="ngModel">
+            <span class="alert" *ngIf="!title.valid && title.touched">Please enter valid value</span>
+        </div>
+        <div class="form-group">
+            <label for="email">Description</label>
+            <input type="email" class="form-control" id="description" name="description" ngModel required #description="ngModel">
+            <span class="alert" *ngIf="!description.valid && description.touched">Please enter valid value</span>
+        </div>
+        <div class="form-group">
+            <label for="phone">Poster</label>
+            <input type="tel" class="form-control" id="poster" name="poster" ngModel required #poster="ngModel">
+            <span class="alert" *ngIf="!poster.valid && poster.touched">Please enter valid value</span>
+        </div>
+        <div class="form-group">
+            <label for="address">Trailer</label>
+            <input type="text" class="form-control" id="trailer" name="trailer" ngModel required #trailer="ngModel">
+            <span class="alert" *ngIf="!trailer.valid && trailer.touched">Please enter valid value</span>
+        </div>
+        <button class="btn btn-primary my-2" type="submit" [disabled]="!userForm.valid">Add Movie</button>
+    </form>
+</div>
+
+<app-alert [message]="error" (showErr)="closeErr()"></app-alert>
+
+
+

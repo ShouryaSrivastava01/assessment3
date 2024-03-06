@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-center">
+    <div class="col-md-6 ">    
+            <form (ngSubmit)="onSubmit(loginForm)" #loginForm = "ngForm">
+                <div class="form-group my-2">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" ngModel required>
+                </div>
+                <div class="form-group my-2">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" ngModel required>
+                </div>
+                <button class="btn btn-primary my-2" type="submit" [disabled]="!loginForm.valid">Login</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <div class="container" *ngIf="errorMessage">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card border-danger bg-danger">
+                <div class="card-body">
+                    <p class="card-text">{{errorMessage}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div> -->
